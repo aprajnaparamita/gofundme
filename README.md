@@ -6,7 +6,7 @@ This Library is not associated to GoFundMe, Inc. in any way, shape, or form.
 
 This description lifted from [the excellent Node.js library by 0nix.][https://github.com/0nix/gofundme]. Although the code is completely unrelated.
 
-For a larger scale  spider check out this [Ruby and Javascript scraper with MongoDB back-end][https://github.com/asanteb/gofundme-scraper]
+For a larger scale spider check out this [Ruby and Javascript scraper with MongoDB back-end][https://github.com/asanteb/gofundme-scraper]
 
 ## Installation
 

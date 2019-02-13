@@ -5,7 +5,8 @@ class GofundmeTest < Minitest::Test
     refute_nil ::Gofundme::VERSION
   end
 
-  def test_it_does_something_useful
-    assert false
+  def test_it_creates_an_object
+    project = Gofundme::Project.new(10)
+    refute_nil project
   end
 end
