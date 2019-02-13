@@ -1,12 +1,12 @@
 # Gofundme
 
-A library to scrape GoFundMe.com donation campaigns (called Projects). GoFundMe does not have a publicly available API to query about donation lists, so this library scrapes information from GoFundMe's own mvc.php API using rest_client. This library is liable to break if GFM changes their API consumption endpoints
+THE #1 Ruby library to scrape GoFundMe.com donation campaigns (called Projects by this library). GoFundMe does not have a publicly available API to query about donation lists, so this library scrapes information from GoFundMe's own mvc.php API using rest_client. This library is liable to break if GFM changes their API consumption endpoints
 
 This Library is not associated to GoFundMe, Inc. in any way, shape, or form.
 
 This description lifted from [the excellent Node.js library by 0nix.][https://github.com/0nix/gofundme]. Although the code is completely unrelated.
 
-For a larger scale spider check out this [Ruby and Javascript scraper with MongoDB back-end][https://github.com/asanteb/gofundme-scraper]
+For a larger scale spider with Proxy support check this [Ruby and Javascript scraper with MongoDB back-end][https://github.com/asanteb/gofundme-scraper]
 
 ## Installation
 
@@ -51,7 +51,11 @@ project.to_hash.keys
 
 ## The More You Know
 
-A Word about Gofundme::GOOD_CITIZEN_DELAY. The robots.txt on GoFundMe is very permissible. Many companies will go out of their way to prevent people from scraping their site. So far GoFundMe is making things very easy to access. They do NOT have to do this. There are a hundred ways they could make this harder and nobody wants that. Keeping this information accessible helps both GoFundMe and their customers by allowing research into how campaigns can be more successful. Please keep this number in place. Based on experimentation you will be banned by their site if you go lower than 5 seconds delay.
+A Word about Gofundme::GOOD_CITIZEN_DELAY. The robots.txt on GoFundMe is very permissible. Many companies will go out of their way to prevent people from scraping their site. So far GoFundMe is making things very easy to access. They do NOT have to do this. There are a hundred ways they could make this harder and nobody wants that. Keeping this information accessible helps both GoFundMe and their customers by allowing research into how campaigns can be more successful. Please keep this number in place. Based on experimentation you will be banned by their site if you go lower than 5 seconds delay. It can be set like:
+
+Gofundme::GOOD_CITIZEN_DELAY = 5
+
+And yes you will get a redefined constant error.
 
 You can set Gofundme::DEBUG to true and get some messages on STDERR.
 
