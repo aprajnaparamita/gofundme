@@ -26,7 +26,47 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+require 'gofundme'
+
+# Fetch an index for a search query
+query = "transgender"
+search = Gofundme::Search.new(query)
+# => #<Gofundme::Search:0x000055c96dbe90d8 @results=1000, @pages=112, @query="transgender">
+# Total pages for the query are in
+puts "Total pages: #{search.pages}"
+page_number = 1
+# This returns an array of links
+links = search.fetch_results(page_number)
+# => ["https://www.gofundme.c...", ...]
+links.length
+# => 9
+# Get the full project details
+url = links.last
+project = Gofundme::Project.scrape(url)
+# => #<Gofundme::Project:0x000055c96dbcf2c8 @updates=[[1, ...
+project.to_hash.keys
+# => [:key, :category, :completed, :title, :name, :profile, :location, :image, :youtube, :vimeo, :images, :shares, :amount, :goal, :pounds, :euros, :goal_pounds, :goal_euros, :backers, :time, :trending, :english, :story_text, :story_html, :link_count, :updates_count, :created_at, :fb_shares, :updates]
+```
+
+## The More You Know
+
+A Word about Gofundme::GOOD_CITIZEN_DELAY. The robots.txt on GoFundMe is very permissible. Many companies will go out of their way to prevent people from scraping their site. So far GoFundMe is making things very easy to access. They do NOT have to do this. There are a hundred ways they could make this harder and nobody wants that. Keeping this information accessible helps both GoFundMe and their customers by allowing research into how campaigns can be more successful. Please keep this number in place. Based on experimentation you will be banned by their site if you go lower than 5 seconds delay.
+
+You can set Gofundme::DEBUG to true and get some messages on STDERR.
+
+One of three header elements will be set on a given Gofundme::Project profile page.
+
+1. :image -> if the user only sets a image as the project primary image
+2. :youtube -> if the user has set a YouTube video in the place of the primary image
+3. :vimeo -> if the user has set a Vimeo video in place of the primary image
+
+If the project is in Euros or Pounds the values will automatically be converted into USD and set in amount and goal. This leaves the original amount raised in :pounds or :euros and the goals in :goal_pounds or :goal_euros. The conversion is based on.
+
+1. Gofundme::EURO_EXCHANGE_RATE = 1.13
+2. Gofundme::POUND_EXCHANGE_RATE = 1.31
+
+These are in lib/gofundme.rb.
 
 ## Development
 

@@ -15,7 +15,7 @@ module Gofundme
       FIELDS.each do |field|
         hash[field]=self.send(field)
       end
-      hash['updates'] = @updates
+      hash[:updates] = @updates
       return hash
     end
 
