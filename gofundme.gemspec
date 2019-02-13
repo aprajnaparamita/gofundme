@@ -9,9 +9,9 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Janet Jeffus"]
   spec.email         = ["speak@jjeff.us"]
 
-  spec.summary       = %q{TODO: Write a short summary, because RubyGems requires one.}
-  spec.description   = %q{TODO: Write a longer description or delete this line.}
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.summary       = %q{Access data from GoFundMe.com site}
+  spec.description   = %q{A library to scrape GoFundMe.com donation campaigns (called Projects). GoFundMe does not have a publicly available API to query about donation lists, so this library scrapes information from GoFundMe's own mvc.php API using rest_client. This library is liable to break if GFM changes their API consumption endpoints. This Library is not associated to GoFundMe, Inc. in any way, shape, or form and respects robots.txt.}
+  spec.homepage      = "https://github.com/jjeffus/gofundme"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
